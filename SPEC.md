@@ -41,8 +41,8 @@ fwd-conv,1,64,56,56,3,3,64,1,1,1,12.0,1.0,1.5,1.5,fwd
 ## Metrics
 
 - **#1: Convolution kernel execution time, forward** — stored as `kernel_time_ms`.
-- **#2: Achieved compute throughput, forward** — stored as `GFLOPs`.
-- **#3: Memory bandwidth, GB/s, forward** — stored as `memory_bandwidth_gb_s`.
+- **#2: Modeled compute throughput, forward, GFLOP/s** — stored as `modeled_gflops_per_s`.
+- **#3: Minimum operand traffic, GB/s, forward** — stored as `min_operand_traffic_gb_s`.
 - **#4: FLOP count** — stored as `flopCnt`.
 
 ## Framework
