@@ -2,14 +2,13 @@
 
 ## Execution Description
 
-Runs MIOpenDriver convfp16 when present; otherwise falls back to torch.nn.functional.conv2d fp16. batch_size, input channels/height/width, output_channels, kernel_height, num_iterations, and conv_direction are used. warmup_iters applies only to the PyTorch fallback. conv_direction=all runs -F 1,2,4; otherwise -F 1. Sweep dimensions: dtype, input_source, conv_direction, batch_size, input_channels, input_height, input_width, output_channels.
+Runs MIOpenDriver convfp16 when present; otherwise falls back to torch.nn.functional.conv2d fp16. batch_size, input channels/height/width, output_channels, kernel_height, num_iterations, and conv_direction are used. warmup_iters: an untimed MIOpenDriver run of that many iterations before each timed run (untimed passes on the PyTorch fallback). conv_direction=all runs -F 1,2,4; otherwise -F 1. Sweep dimensions: dtype, conv_direction, batch_size, input_channels, input_height, input_width, output_channels, kernel_height.
 
 ## Parameters
 
 | Parameter | CLI Flag | Tested Values | Default | Description |
 | --- | --- | --- | --- | --- |
 | dtype | `--dtype` | smoke=FP16, baseline=FP16, extended=FP16 | FP16 | From Parameter list; see Execution Description With Parameters. |
-| input_source | `--input-source` | smoke=synthetic, baseline=synthetic, extended=synthetic | synthetic | From Parameter list; see Execution Description With Parameters. |
 | conv_direction | `--conv-direction` | smoke=all, baseline=all, extended=all | all | From Parameter list; see Execution Description With Parameters. |
 | batch_size | `--batch-size` | smoke=1, baseline=32, extended=32 | 32 | From Parameter list; see Execution Description With Parameters. |
 | input_channels | `--input-channels` | smoke=8, baseline=3, extended=3 | 3 | From Parameter list; see Execution Description With Parameters. |
@@ -47,7 +46,7 @@ fwd-conv,1,64,56,56,3,3,64,1,1,1,12.0,1.0,1.5,1.5,fwd
 
 ## Framework
 
-Runs MIOpenDriver convfp16 when present; otherwise falls back to torch.nn.functional.conv2d fp16. batch_size, input channels/height/width, output_channels, kernel_height, num_iterations, and conv_direction are used. warmup_iters applies only to the PyTorch fallback.
+Runs MIOpenDriver convfp16 when present; otherwise falls back to torch.nn.functional.conv2d fp16. batch_size, input channels/height/width, output_channels, kernel_height, num_iterations, and conv_direction are used. warmup_iters: an untimed MIOpenDriver run of that many iterations before each timed run (untimed passes on the PyTorch fallback).
 
 ## Installation and Execution Summary
 
@@ -107,10 +106,10 @@ bash run_benchmark.sh --profile extended --validate
 2. `run.error_message` is NULL.
 3. `started_at` and `finished_at` are valid ISO-8601 UTC strings.
 4. All required aggregate metrics in `runs` are non-NULL and finite.
-5. All required aggregate metrics are physically sensible (positive values). Runs MIOpenDriver convfp16 when present; otherwise falls back to torch.nn.functional.conv2d fp16. batch_size, input channels/height/width, output_channels, kernel_height, num_iterations, and conv_direction are used. warmup_iters applies only to the PyTorch fallback.
+5. All required aggregate metrics are physically sensible (positive values). Runs MIOpenDriver convfp16 when present; otherwise falls back to torch.nn.functional.conv2d fp16. batch_size, input channels/height/width, output_channels, kernel_height, num_iterations, and conv_direction are used. warmup_iters: an untimed MIOpenDriver run of that many iterations before each timed run (untimed passes on the PyTorch fallback).
 6. At least 2 sample rows exist for the latest `run_id` (sweep coverage).
 7. No sample has `status = 'error'`.
-8. Runs MIOpenDriver convfp16 when present; otherwise falls back to torch.nn.functional.conv2d fp16. batch_size, input channels/height/width, output_channels, kernel_height, num_iterations, and conv_direction are used. warmup_iters applies only to the PyTorch fallback.
+8. Runs MIOpenDriver convfp16 when present; otherwise falls back to torch.nn.functional.conv2d fp16. batch_size, input channels/height/width, output_channels, kernel_height, num_iterations, and conv_direction are used. warmup_iters: an untimed MIOpenDriver run of that many iterations before each timed run (untimed passes on the PyTorch fallback).
 
 ### Baseline / Threshold configuration (`config/benchmark_config.yaml`)
 
