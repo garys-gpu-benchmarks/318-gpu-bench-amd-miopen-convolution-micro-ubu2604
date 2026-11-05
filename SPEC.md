@@ -94,9 +94,9 @@ fwd-conv,1,64,56,56,3,3,64,1,1,1,12.0,1.0,1.5,1.5,fwd
 
 ```bash
 bash run_benchmark.sh --help
-bash run_benchmark.sh --profile smoke --validate
-bash run_benchmark.sh --profile baseline --validate
-bash run_benchmark.sh --profile extended --validate
+bash run_benchmark.sh --smoke --validate
+bash run_benchmark.sh --baseline --validate
+bash run_benchmark.sh --extended --validate
 ```
 `run_benchmark.sh --help` prints usage and exits. The harness calls `scripts/ensure_setup.sh` when `.setup_state` is absent.
 
