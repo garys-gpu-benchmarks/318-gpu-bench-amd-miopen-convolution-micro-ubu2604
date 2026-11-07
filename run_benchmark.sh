@@ -16,12 +16,11 @@ capture_benchmark_run_command_submitted "$@"
 
 usage() {
   cat <<'USAGE'
+
 Usage: bash run_benchmark.sh [OPTIONS]
 
 Workload Name:          MIOpen Convolution Solver Microbenchmark.
 Main Goal:              Measure MIOpen convolution solver speed.
-Validation Objective:   Validates MIOpenDriver convfp16 parse, or the PyTorch fp16 fallback row if
-                        the driver is missing.
 Command Tools Executed: Run MIOpenDriver convfp16 when on PATH or /opt/rocm/bin; otherwise run a
                         PyTorch conv2d fallback.
 
