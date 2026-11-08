@@ -19,10 +19,10 @@ usage() {
 
 Usage: bash run_benchmark.sh [OPTIONS]
 
-Workload Name:          MIOpen Convolution Solver Microbenchmark.
-Main Goal:              Measure MIOpen convolution solver speed.
+Workload Name:          MIOpen Convolution Solver Microbenchmark
+Main Goal:              Measure MIOpen convolution solver speed
 Command Tools Executed: Run MIOpenDriver convfp16 when on PATH or /opt/rocm/bin; otherwise run a
-                        PyTorch conv2d fallback.
+                        PyTorch conv2d fallback
 
 Profiles (default: --smoke):
   --smoke                       Run smoke profile

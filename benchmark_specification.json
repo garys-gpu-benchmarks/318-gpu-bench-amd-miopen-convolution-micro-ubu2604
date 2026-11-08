@@ -205,14 +205,14 @@
     "value": "MI300X"
   },
   {
-    "field_name": "Raw Output Format",
-    "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
-    "value": "MIOpenDriver stdout, or a PyTorch fallback CSV. The header includes kernel_time_ms and direction"
-  },
-  {
     "field_name": "Primary Record Granularity",
     "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
     "value": "one stats row per timed direction (fwd, bwd_data, or bwd_weights). A single fallback row is duplicated"
+  },
+  {
+    "field_name": "Raw Output Format",
+    "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
+    "value": "MIOpenDriver stdout, or a PyTorch fallback CSV. The header includes kernel_time_ms and direction"
   },
   {
     "field_name": "Raw Output Example",
@@ -225,14 +225,14 @@
     "value": "GFLOPs, GB/s, timeMs, kernel_time_ms, direction. The parser aliases GB/s to memory_bandwidth_gb_s"
   },
   {
-    "field_name": "Success Criteria",
-    "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
-    "value": "At least one direction produces a parseable timeMs and GFLOPs row"
-  },
-  {
     "field_name": "Parser and Normalization Notes",
     "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
     "value": "MIOpenDriver -F 1, 2, and 4 map to direction fwd, bwd_data, and bwd_weights. kernel_time_ms copies timeMs. GB/s is (bytesRead+bytesWritten)/elapsed, and the parser aliases GB/s to memory_bandwidth_gb_s. Headline metrics are the forward row; per-direction keys are <metric>_<direction>"
+  },
+  {
+    "field_name": "Success Criteria",
+    "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
+    "value": "At least one direction produces a parseable timeMs and GFLOPs row"
   },
   {
     "field_name": "Hardware Config",
