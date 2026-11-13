@@ -40,6 +40,11 @@
     "value": "Run MIOpenDriver convfp16 when on PATH or /opt/rocm/bin; otherwise run a PyTorch conv2d fallback"
   },
   {
+    "field_name": "Execution Description With Parameters",
+    "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
+    "value": "Runs MIOpenDriver convfp16 when present; otherwise falls back to torch.nn.functional.conv2d fp16. batch_size, input channels/height/width, output_channels, kernel_height, num_iterations, and conv_direction are used. warmup_iters: an untimed MIOpenDriver run of that many iterations before each timed run (untimed passes on the PyTorch fallback). conv_direction=all runs -F 1,2,4; otherwise -F 1. search_strategy: find keeps MIOpenDriver's Find; heuristic, get, fixed and none set MIOPEN_FIND_MODE=FAST (find-db, else immediate-mode heuristic). kernel_width is copied from kernel_height. output_format: csv"
+  },
+  {
     "field_name": "Metrics",
     "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
     "value": "#1: Convolution kernel execution time, forward (kernel_time_ms); #2: Modeled compute throughput, forward, GFLOP/s (modeled_gflops_per_s); #3: Minimum operand traffic, GB/s, forward (min_operand_traffic_gb_s); #4: FLOP count (flopCnt)"
@@ -173,11 +178,6 @@
     "field_name": "Command Methodology",
     "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
     "value": "Run MIOpenDriver convfp16 with yaml n/c/H/W/k/y/x and -F directions, passing iteration count via -i (no separate warmup), parse timeMs/GFLOPs/GB/s, and fall back to torch.nn.functional.conv2d fp16 with warmup_iters if the driver is missing or unparsed. search_strategy=find must not become -S 1"
-  },
-  {
-    "field_name": "Execution Description With Parameters",
-    "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
-    "value": "Runs MIOpenDriver convfp16 when present; otherwise falls back to torch.nn.functional.conv2d fp16. batch_size, input channels/height/width, output_channels, kernel_height, num_iterations, and conv_direction are used. warmup_iters: an untimed MIOpenDriver run of that many iterations before each timed run (untimed passes on the PyTorch fallback). conv_direction=all runs -F 1,2,4; otherwise -F 1. search_strategy: find keeps MIOpenDriver's Find; heuristic, get, fixed and none set MIOPEN_FIND_MODE=FAST (find-db, else immediate-mode heuristic). kernel_width is copied from kernel_height. output_format: csv"
   },
   {
     "field_name": "Execution Domain",
